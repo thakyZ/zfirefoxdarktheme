@@ -1,0 +1,131 @@
+/* Clear the background of transparent images. */
+/* Firefox made the background of stand-alone
+   transparent images white, I guess to counter
+   some images having the same color as the
+   background. I never had that problem, and
+   I like my transparent images transparent,
+   so this reverses that. */
+
+img.transparent {
+	background: transparent !important;
+}
+
+/* ##### DARK 'ABOUT' PAGES ##################### */
+@-moz-document domain('about:blank'), domain('about:newtab'), domain('about:home') {
+	body {
+		background-color: #383838 !important;
+    color: #FFFFFF !important;
+    --newtab-text-primary-color: #FFFFFF;
+	}
+  #snippets-container {
+		background-color: #1F1F1F !important;
+    color: #FFFFFF !important;
+  }
+  .section-title span {
+    color: #A6A6A6 !important;
+    fill: #A6A6A6 !important;
+  }
+  .context-menu > ul > li {
+    color: rgba(12, 12, 13, 0.8) !important;
+  }
+  .card-description {
+    color: rgba(12, 12, 13, 0.8) !important;
+  }
+  .card-title {
+    color: rgba(12, 12, 13, 0.8) !important;
+  }
+  .edit-topsites-wrapper {
+    color: rgba(12, 12, 13, 0.8) !important;
+  }
+  .section {
+  	visibility: hidden !important;
+  }
+  .prefs-pane-button button {
+    fill: #FFFFFF !important;
+  }
+  .prefs-pane-button button:hover {
+	  background-color: #1F1F1F !important;
+  }
+  .contentSearchSuggestionsList > tr > td > span {
+    color: rgba(225, 225, 225, 0.8) !important;
+  }
+  #newtab-search-text {
+    color: rgb(225, 225, 225, 0.8) !important;
+  }
+  #onboarding-overlay {
+    background: rgba(12, 12, 13, 0.8) !important;
+  }
+}
+
+/*@-moz-document url('about:profiles'), url('about:support') {
+  html {
+    background: #383838 !important;
+    color: #FFFFFF !important;
+  }
+  body > h1 {
+    color: #FFFFFF !important;
+  }
+  #action-box {
+    background: #1F1F1F !important;
+    color: #FFFFFF !important;
+    border-color: #191919 !important;
+  }
+  tr, td, th, table {
+	  border-color: #191919 !important;
+  }
+  #profiles > div > table > tbody > tr > td {
+  	background: #1f1f1f !important;
+	  color: #FFFFFF !important;
+  }
+  #contents > table > tbody > tr > td {
+  	background: #1f1f1f !important;
+	  color: #FFFFFF !important;
+  }
+  #contents > table > tbody > tr > td > table > tr > td {
+  	background: #101010 !important;
+	  color: #FFFFFF !important;
+  }
+  #contents > table > tr > td {
+	  background: #1f1f1f !important;
+	  color: #FFFFFF !important;
+  }
+}*/
+
+@-moz-document domain('about:preferences') {
+  .checkbox-icon {
+    fill: #FFFFFF !important;
+  }
+  xul|*.checkbox-check {
+  	background-color: #1f1f1f;
+  	background-image: linear-gradient(#1f1f1f,#191919);
+  	box-shadow: #101010 0px 1px 1px 0px, rgba(0,0,0,0.03) 0px 2px 0px 0px inset;
+  }
+  xul|*.checkbox-check[checked] {
+    fill: #0080FF;
+  }
+}
+
+*|*:root {
+  --in-content-page-color: #FFFFFF !important;
+  --in-content-page-background: #383838 !important;
+  --in-content-text-color: #FFFFFF !important;
+  --in-content-category-text: #FFFFFF !important;
+  --in-content-table-background: #1f1f1f !important;
+  --in-content-border-color: #191919 !important;
+  --in-content-table-border-dark-color: #191919 !important;
+  --in-content-box-background-hover: #484848 !important;
+  --in-content-box-border-color: #101010 !important;
+}
+
+/* Netflix subtitles */
+@-moz-document url-prefix('https://www.netflix.com/watch/') {
+	.player-timedtext-text-container {
+		background-color: rgba(0,0,0,0.8) !important;
+		padding: 6px 12px;
+		border-radius: 6px;
+	}
+	.player-timedtext-text-container span {
+		text-shadow: none !important;
+		-webkit-font-smoothing: antialiased !important;
+	}
+}

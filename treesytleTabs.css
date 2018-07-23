@@ -1,0 +1,149 @@
+/* Hide border on tab bar, force its state to 'scroll', adjust margin-left for width of scrollbar. */
+#tabbar {
+  border: 0;
+  overflow-y: scroll !important;
+  margin-left: -18px !important;
+}
+
+/* Hide .twisty and adjust margins so favicons have 7px on left. */
+.tab .twisty {
+  visibility: hidden;
+  margin-left: -12px;
+}
+
+/* Push tab labels slightly to the right so they're completely hidden in collapsed state, but still look fine while expanded. */
+.tab .label {
+  margin-left: 7px;
+}
+
+/* Change the behavior and color of the close box. */
+.tab:not(:hover) .closebox {
+  display: none;
+}
+
+/* Change color of closebox icon to white */
+.tab:hover .closebox::after {
+  background-color: #FFFFFF;
+}
+
+/* Change 'new tab' button color. */
+.newtab-button-box .newtab-button {
+  background-color: #1f1f1f;
+  border-color: #000000;
+}
+
+:root.simulate-svg-context-fill .newtab-button::before {
+  background-color: #FFFFFF;
+}
+
+
+/* Hide the favicon on new tabs. */
+.tab:not(.loading):-moz-any([data-current-uri="about:newtab"], [data-current-uri="about:home"], [data-current-uri="about:blank"], [data-current-uri="about:profiles"]) .favicon {
+  visibility: hidden;
+}
+
+/* Fixing weird icons on new tabs. */
+:root:not(.contextual-identity-selectable) .after-tabs .newtab-action-selector-anchor, .after-tabs .contextual-identities-selector-anchor {
+  border-color: #000;
+}
+
+/* Fix color of new tab selecto.r */
+.newtab-action-selector-anchor::before, .contextual-identities-selector-anchor::before {
+  opacity: 0.75;
+  color: #FFFFFF;
+}
+.newtab-action-selector-anchor:hover::before, .contextual-identities-selector-anchor:hover::before {
+  opacity: var(--button-hover-opacity);
+}
+
+
+/* ##### THEME ############################################ */
+@keyframes pulse {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 1;
+  }
+  100% {
+    width: 350px;
+    height: 350px;
+    opacity: 0;
+    top: calc(50% - 175px);
+    left: calc(50% - 175px);
+  }
+}
+
+#tabbar {
+  border-right: 1px solid #1d1d1d;
+  box-shadow: none !important;
+  background-color: #383838;
+}
+
+/* ######################################################## */
+
+.tab {
+  background-color: transparent;
+  border-color: #292929;
+  box-shadow: none !important;
+}
+
+.tab .label {
+  color: rgba(207, 207, 207, 0.75) !important;
+}
+
+.tab:hover {
+  background-color: #404040 !important;
+}
+
+.tab:hover .label {
+  color: rgba(207, 207, 207, 1) !important;
+}
+
+/* ######################################################## */
+
+.tab.discarded {
+  background-color: #1d1d1d;
+}
+
+.tab.discarded .label {
+  color: rgba(207, 207, 207, 0.25) !important;
+}
+
+.tab.discarded:hover {
+  background-color: #292929 !important;
+}
+
+/* ######################################################## */
+
+.tab.active {
+  background-color: #0080FF;
+}
+
+.tab.active .label {
+  font-weight: bold;
+  color: rgba(207, 207, 207, 1) !important;
+}
+
+.tab.active:hover {
+  background-color: #00C2FF !important;
+}
+
+/* ######################################################## */
+
+/* Adjust style for tab that has sound playing. */
+.tab.sound-playing .favicon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  background: #FFFFFF;
+  animation: pulse 2s ease-out 0s infinite;
+  z-index: -1;
+  opacity: 0;
+}
+
+/* Adjust style for tab that is muted. */
+.tab.muted {
+  opacity: 0.5;
+}
